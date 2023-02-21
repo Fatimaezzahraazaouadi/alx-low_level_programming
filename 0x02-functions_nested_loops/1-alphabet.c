@@ -1,17 +1,22 @@
 #include "main.h"
 
 /**
- *print_alphabet - Make the alphabet
+ * print_alphabet - Entry point
+ * Description: Prints alpabets
  * Return: void
  */
 
-void print_alphabet(void);
-
+void print_alphabet(void)
 {
-	char c;
-	for (c = 'a'; c <== 'z', c++)
-        {
-	_putchar(c);
-	}
-        _putchar('\n');
+ char curr;
+
+ curr = 'a';
+
+ while (curr <= 'z')
+ {
+  _putchar(curr);
+  curr++;
+ }
+
+ _putchar('\n');
 }
