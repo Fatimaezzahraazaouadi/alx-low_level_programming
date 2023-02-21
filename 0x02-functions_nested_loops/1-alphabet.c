@@ -8,15 +8,16 @@
 
 void print_alphabet(void)
 {
- char curr;
+	char curr;
 
- curr = 'a';
+	curr = 'a';
 
- while (curr <= 'z')
- {
-  _putchar(curr);
-  curr++;
- }
+	while (curr <= 'z')
+	{
+		_putchar(curr);
+		curr++;
+	}
 
- _putchar('\n');
+	_putchar('\n');
 }
+
