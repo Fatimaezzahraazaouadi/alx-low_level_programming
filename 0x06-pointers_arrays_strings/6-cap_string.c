@@ -1,28 +1,32 @@
 #include "main.h"
 
 /**
- * leet - converts specific characters to 4-3-0-7-1
- * @s: the string to iterate through
- * Return: return the converted string
+ * cap_string - Captilizes the string given as parameter
+ * @s: the string
+ * Return: the captilized string
  **/
 
-char *leet(char *s)
+char *cap_string(char *s)
 {
 	int i;
 
 	i = 0;
+	if (s[i] >= 'a' && s[i] <= 'z')
+	{
+		s[i] -= 32;
+	}
+
 	while (s[i])
 	{
-		if (s[i] == 'a' || s[i] == 'A')
-			s[i] = '4';
-		else if (s[i] == 'e' || s[i] == 'E')
-			s[i] = '3';
-		else if (s[i] == 'o' || s[i] == 'O')
-			s[i] = '0';
-		else if (s[i] == 't' || s[i] == 'T')
-			s[i] = '7';
-		else if (s[i] == 'l' || s[i] == 'L')
-			s[i] = '1';
+		if (s[i] == ' ' || s[i] == '\t' || s[i] == '\n' || s[i] == ','
+			|| s[i] == ';' || s[i] == '.' || s[i] == '!' || s[i] == '?'
+			|| s[i] == '\"' || s[i] == '(' || s[i] == ')' || s[i] == '{'
+			|| s[i] == '}')
+		{
+			if (s[i + 1] >= 'a' && s[i + 1] <= 'z')
+				s[i + 1] -= 'a' - 'A';
+		}
+
 		i++;
 	}
 	return (s);
