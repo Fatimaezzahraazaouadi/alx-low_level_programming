@@ -6,7 +6,7 @@
  * Return: 0
  */
 
-void rev_array(char *n)
+void reverse_array(char *n)
 {
 	int i = 0;
 	int j = 0;
