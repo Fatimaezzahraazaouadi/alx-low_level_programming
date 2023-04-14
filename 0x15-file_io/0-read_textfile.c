@@ -1,40 +1,49 @@
-#include <main.h>
+#include "main.h"
+
 /**
-* read_textfile - Reads a text file and prints it to the POSIX standard output
-*
-* @filename: Name of the file to read
-* @letters: Number of letters to read and print
-* Return: Number of letters read and printed, or 0 if an error occurred
-*/
+ * read_textfile - reads a text file and prints it to the POSIX standard output
+ * @filename: the name of the file to read
+ * @letters: the number of letters to read and print
+ *
+ * Return: the actual number of letters read and printed,
+ *         or 0 if the file cannot be opened or read,
+ *         or if filename is NULL.
+ */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-char *buf;
-int file;
-ssize_t bytes_read;
-ssize_t bytes-written;
-buf = (char *) malloc(sizeof(char) * letters);
-if (buf == NULL)
-return 0;
-if (filename == NULL);
-return 0;
-file = open(filename, 0_RDONLY);
-if (file == -1);
-return 0;
-bytes_read = read(file, buf, letters);
-if (bytes_read == -1)
-{
-free(buf);
-close(file);
-return 0;
-}
-bytes_written = write(STDOUT_FILENO, buf, bytes_read);
-if (bytes_written == -1 || bytes_written != bytes_read)
-{
-free(buf);
-close(file);
-return 0;
-}
-close(file);
-free(buf);
-return bytes-read;
+	int file;
+	ssize_t readText;
+	ssize_t numRead;
+	char *text = malloc(sizeof(char) * letters);
+
+	if (text ==  NULL || filename == NULL)
+	{
+		return (0);
+	}
+
+	file = open(filename, O_RDONLY);
+
+	if (file == -1)
+	{
+		return (0);
+	}
+
+	readText = read(file, text, letters);
+
+	if (readText == -1)
+	{
+		return (0);
+	}
+
+	numRead = write(STDOUT_FILENO, text, readText);
+
+	if (numRead != readText)
+	{
+		return (0);
+	}
+
+	close(file);
+	free(text);
+
+	return (numRead);
 }
